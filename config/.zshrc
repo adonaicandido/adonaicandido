@@ -1,38 +1,36 @@
-export ZSH="$HOME/.oh-my-zsh"
+# Antigen
+source ~/.zsh/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle asdf
+antigen bundle aws
+antigen bundle colorize
+antigen bundle command-not-found
+antigen bundle docker
+antigen bundle docker-compose
+antigen bundle dotnet
+antigen bundle git
+antigen bundle git-flow-avh
+antigen bundle alexrochas/git-semantic-commits
+antigen bundle npm
+antigen bundle starship
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-syntax-highlighting
 
-ZSH_THEME=""
+antigen apply
 
-plugins=(
-  1password
-  asdf
-  colorize
-  docker
-  docker-compose
-  gcloud
-  git
-  npm
-  vscode
-  yarn
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-### User configuration
-
-## Aliases
-# Directories
+# Aliases
 alias home='cd ~/'
-alias repos='cd ~/repositories'
+alias repos='cd ~/repos'
 
-# OS
 alias fix='sudo apt update && sudo apt --fix-broken install && sudo apt upgrade -y && sudo apt install -f && sudo apt autoremove'
 alias ports='lsof -i'
 
 # Configuration Files
-alias gitconf='nano ~/.gitconfig'
-alias zshconf='nano ~/.zshrc'
+alias gitconf='code ~/.gitconfig'
+alias sshconf='code ~/.ssh/config'
+alias npmconf='code ~/.npmrc'
+alias zshconf='code ~/.zshrc'
 
 # Node Development
 alias ns='npm run start'
@@ -41,13 +39,16 @@ alias nd='npm run dev'
 alias yd='yarn dev'
 alias nb='npm run build'
 alias yb='yarn build'
-alias nrm='rm -Rf node_modules/ package-lock.json npm-error.log && npm install'
-alias yrm='rm -Rf node_modules/ yarn.lock yarn-error.log && yarn install'
+alias nrm='rm -Rf node_modules && npm install'
+
+# ASDF Go-lang Plugin
+. ~/.asdf/plugins/golang/set-env.zsh
 
 # ASDF
-fpath=(${ASDF_DIR}/completions $fpath)
-autoload -Uz compinit && compinit
+# . "$HOME/.asdf/asdf.sh"
+# fpath=(${ASDF_DIR}/completions $fpath)
+# autoload -Uz compinit && compinit
 
 # Startship
-export STARSHIP_CONFIG="$HOME/.starship.toml"
-eval "$(starship init zsh)"
+# export STARSHIP_CONFIG="$HOME/.starship.toml"
+# eval "$(starship init zsh)"
