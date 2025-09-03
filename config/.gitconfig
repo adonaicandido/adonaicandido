@@ -1,8 +1,23 @@
-[user]
-	name = Adonai Candido
-[pull]
-	rebase = true
-[init]
-	defaultBranch = main
 [core]
-	editor = /usr/bin/nano
+  # WSL2
+  sshCommand = ssh.exe
+
+[user]
+  name = Adonai Candido
+  email = hi@adonai.dev
+
+[pull]
+  rebase = true
+
+[init]
+  defaultBranch = main
+
+[gpg]
+  format = ssh
+
+[gpg "ssh"]
+  # WSL2
+  program = "/mnt/c/Users/Adonai/AppData/Local/1Password/app/8/op-ssh-sign-wsl"
+
+[commit]
+  gpgsign = true
